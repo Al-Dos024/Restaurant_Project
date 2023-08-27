@@ -19,6 +19,7 @@ class _buttomNavBarState extends State<buttomNavBar> {
   ];
   @override
   Widget build(BuildContext context) {
+    // var name = ModalRoute.of(context)?.settings.arguments as List;
     return Scaffold(
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () {},
