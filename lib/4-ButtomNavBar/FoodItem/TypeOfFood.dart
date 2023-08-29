@@ -5,38 +5,44 @@ import 'package:restaurantapp/4-ButtomNavBar/FoodItem/MealWidget.dart';
 // import 'MealWidget.dart';
 
 class TypeOfFood extends StatelessWidget {
-  const TypeOfFood({super.key});
+  TypeOfFood({required this.maleName, super.key});
 
+  String maleName;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
-        body: StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance.collection('Pizza').snapshots(),
-          builder:
-              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (snapshot.hasError) {
-              return Center(
-                child: Text("wrong"),
-              );
-            }
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            return ListView(
-              children: snapshot.data!.docs.map((DocumentSnapshot domument) {
-                Map<String, dynamic> data =
-                    domument.data()! as Map<String, dynamic>;
-                return ListTile(
-                  //title: Text(data['name']),
-                  title: BuildTypeMeal(data['name'], data['img']),
-                  onTap: () {},
-                );
-              }).toList(),
+      appBar: AppBar(),
+      body: StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection(maleName).snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasError) {
+            return const Center(
+              child: Text("wrong"),
             );
-          },
-        ));
+          }
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return ListView(
+            children: snapshot.data!.docs.map((DocumentSnapshot domument) {
+              Map<String, dynamic> data =
+                  domument.data()! as Map<String, dynamic>;
+              return ListTile(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(width: 2),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                // title: Text(data['name']),
+                title: BuildTypeMeal(data['name'], data['img']),
+
+                onTap: () {},
+              );
+            }).toList(),
+          );
+        },
+      ),
+    );
   }
 }

@@ -20,12 +20,12 @@ class ItemsScreen extends StatelessWidget {
           .snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Center(
+          return const Center(
             child: Text("wrong"),
           );
         }
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }
@@ -39,7 +39,7 @@ class ItemsScreen extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const TypeOfFood(),
+                    builder: (context) => TypeOfFood(maleName: data['name']),
                   ),
                 );
               },

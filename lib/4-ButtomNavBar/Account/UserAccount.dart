@@ -63,8 +63,9 @@ class UserAcountScreen extends StatelessWidget {
               onPressed: () async {
                 await FirebaseAuth.instance.signOut().then(
                       (value) => Navigator.of(context).push(
-                        new MaterialPageRoute(
-                          builder: (BuildContext context) => ChangePassword(),
+                        MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const ChangePassword(),
                         ),
                       ),
                     );
@@ -101,9 +102,9 @@ class UserAcountScreen extends StatelessWidget {
                         onPressed: () async {
                           await FirebaseAuth.instance.signOut().then((value) =>
                               Navigator.of(context).pushReplacement(
-                                  new MaterialPageRoute(
+                                  MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          LoginScreen())));
+                                          const LoginScreen())));
                         },
                         child: const Text(
                           'Yes',
