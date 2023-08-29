@@ -21,7 +21,7 @@ class BussinsCard extends StatelessWidget {
             child: CircleAvatar(
                 radius: 105,
                 backgroundColor: Colors.yellowAccent,
-                backgroundImage: AssetImage('images/sus.png')),
+                backgroundImage: AssetImage('images/Myself.jpg')),
           ),
           const SizedBox(
             height: 20,
