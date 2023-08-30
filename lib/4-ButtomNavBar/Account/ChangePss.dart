@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:restaurantapp/3-RegisterScreen.dart';
 
 bool oldshowpassword = true;
 bool newshowpassword = true;
@@ -25,7 +26,7 @@ class _ChangePasswordState extends State<ChangePassword> {
   ChangePassword({email, oldPassword, newPassword}) async {
     var cred =
         EmailAuthProvider.credential(email: email, password: oldPassword);
-    await currentUser!.reauthenticateWithCredential(cred).then((value) {
+    await currentUser?.reauthenticateWithCredential(cred).then((value) {
       currentUser!.updatePassword(newPassword);
     }).catchError((erorr) {
       print(erorr.toString());
@@ -138,7 +139,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                         print(newpasswordcontrollor);
                       }
                       await ChangePassword(
-                        email: "jdwjixbeiz@outlook.com",
+                        email: emailcontrollor.text,
                         oldPassword: oldepasswordcontrollor.text,
                         newPassword: newpasswordcontrollor.text,
                       );
