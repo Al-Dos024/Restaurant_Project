@@ -78,7 +78,7 @@ class _OnboardingState extends State<OnBoarding> {
                   urlImage: 'images/Chef-Icon.gif',
                   title: "Welcome a board",
                   subtitle:
-                      "I'm Ali Dosoqi , I made an App that have menu of a restrant that serves fast food , hope u enjoy :D"),
+                      "I'm Ali Dosoqi , I made an App that have menu of a restrant that serves fast food , hope you enjoy :D"),
               buildPage(
                   color: Colors.green.shade100,
                   urlImage: 'images/3272764.png',
@@ -89,7 +89,8 @@ class _OnboardingState extends State<OnBoarding> {
                   color: Colors.green.shade100,
                   urlImage: 'images/2-Cooked.png',
                   title: "Shall we begin ?",
-                  subtitle: "Login to your Acount "),
+                  subtitle:
+                      "What are you waiting for ? Login to your Acount and lets see the App."),
             ]),
       ),
       bottomSheet: isLAstpage

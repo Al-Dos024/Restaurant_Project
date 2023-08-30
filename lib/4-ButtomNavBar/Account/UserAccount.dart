@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, must_be_immutable
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +6,7 @@ import 'package:restaurantapp/2-Loginscreen.dart';
 import 'package:restaurantapp/4-ButtomNavBar/Account/ChangePss.dart';
 
 class UserAcountScreen extends StatelessWidget {
-  const UserAcountScreen({super.key});
+  UserAcountScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class UserAcountScreen extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(20))),
               height: 280,
               width: double.infinity,
-              child: const Column(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
@@ -38,18 +38,18 @@ class UserAcountScreen extends StatelessWidget {
                         color: Colors.black),
                   ),
                   Text(
-                    "Need to Do anything here ?",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: Colors.black),
-                  ),
-                  Text(
-                    "Email :",
+                    "Email : ",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Colors.black),
+                  ),
+                  Text(
+                    emailcontrollor.text,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        color: Colors.blueGrey),
                   ),
                 ],
               ),

@@ -179,7 +179,7 @@ class _Registar_screenState extends State<RegistarScreen> {
                               "---------------------success------------------");
                           Navigator.of(context).pushReplacement(
                             MaterialPageRoute(
-                              builder: (context) => const buttomNavBar(),
+                              builder: (context) => buttomNavBar(),
                             ),
                           );
                         }).catchError((Error) {

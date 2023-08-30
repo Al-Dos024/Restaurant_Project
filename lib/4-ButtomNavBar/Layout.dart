@@ -4,7 +4,7 @@ import 'package:restaurantapp/4-ButtomNavBar/More/More.dart';
 import 'package:restaurantapp/4-ButtomNavBar/Account/UserAccount.dart';
 
 class buttomNavBar extends StatefulWidget {
-  const buttomNavBar({super.key});
+  buttomNavBar({super.key});
 
   @override
   State<buttomNavBar> createState() => _buttomNavBarState();
@@ -14,7 +14,7 @@ class _buttomNavBarState extends State<buttomNavBar> {
   int currentIndex = 0;
   List<Widget> screens = [
     const ItemsScreen(),
-    const UserAcountScreen(),
+    UserAcountScreen(),
     const MoreScreen(),
   ];
   @override
