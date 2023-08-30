@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '4-ButtomNavBar/Layout.dart';
+
 bool showpassword = true;
 
 TextEditingController emailcontrollor = TextEditingController();
@@ -156,6 +158,7 @@ class _Registar_screenState extends State<RegistarScreen> {
                   child: MaterialButton(
                     onPressed: () async {
                       final user = User(
+                          email: emailcontrollor.text,
                           name: namecontrollor.text,
                           age: int.parse(agecontrollor.text));
 
@@ -174,7 +177,15 @@ class _Registar_screenState extends State<RegistarScreen> {
                           print(value.user!.uid);
                           print(
                               "---------------------success------------------");
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const buttomNavBar(),
+                            ),
+                          );
                         }).catchError((Error) {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text(
+                                  "There is an error with Email or Password, Try again")));
                           print(Error.toString());
                           print(
                               "---------------------Failed------------------");
@@ -202,7 +213,8 @@ class _Registar_screenState extends State<RegistarScreen> {
 }
 
 Future createUser(User user) async {
-  final docUser = FirebaseFirestore.instance.collection('users').doc();
+  final docUser =
+      FirebaseFirestore.instance.collection('users').doc(emailcontrollor.text);
   user.id = docUser.id;
 
   final json = user.toJson();
@@ -211,17 +223,16 @@ Future createUser(User user) async {
 
 class User {
   String id;
+  final String email;
   final String name;
   final int age;
 
   User({
     this.id = ' ',
+    required this.email,
     required this.name,
     required this.age,
   });
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        'age': age,
-      };
+  Map<String, dynamic> toJson() =>
+      {'id': id, 'name': name, 'age': age, 'email': email};
 }

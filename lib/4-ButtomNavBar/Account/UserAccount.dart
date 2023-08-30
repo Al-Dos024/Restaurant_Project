@@ -38,14 +38,14 @@ class UserAcountScreen extends StatelessWidget {
                         color: Colors.black),
                   ),
                   Text(
-                    "UID :",
+                    "Need to Do anything here ?",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                        fontSize: 18,
                         color: Colors.black),
                   ),
                   Text(
-                    "Name :",
+                    "Email :",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,

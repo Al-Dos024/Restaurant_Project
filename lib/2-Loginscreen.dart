@@ -141,6 +141,9 @@ class _LoginscreenState extends State<LoginScreen> {
                           );
                         }).catchError(
                           (Error) {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content: Text(
+                                    "The Email or password not matching, Try again")));
                             print(Error.toString());
                             print(
                                 "---------------------Failed------------------");
