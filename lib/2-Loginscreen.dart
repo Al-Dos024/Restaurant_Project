@@ -3,7 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '1-Onboarding.dart';
-import '3-RegistarScreen.dart';
+import '3-RegisterScreen.dart';
 import '4-ButtomNavBar/Layout.dart';
 
 bool showpassword = true;
