@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, avoid_print
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -141,9 +141,10 @@ class _LoginscreenState extends State<LoginScreen> {
                           );
                         }).catchError(
                           (Error) {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                content: Text(
-                                    "The Email or password not matching, Try again")));
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text(
+                                        "The Email or password not matching, Try again")));
                             print(Error.toString());
                             print(
                                 "---------------------Failed------------------");

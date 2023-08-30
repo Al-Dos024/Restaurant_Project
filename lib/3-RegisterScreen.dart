@@ -1,10 +1,11 @@
-// ignore_for_file: file_names, camel_case_types
+// ignore_for_file: file_names, camel_case_types, avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:restaurantapp/2-Loginscreen.dart';
 
-import '4-ButtomNavBar/Layout.dart';
+// import '4-ButtomNavBar/Layout.dart';
 
 bool showpassword = true;
 
@@ -157,16 +158,16 @@ class _Registar_screenState extends State<RegistarScreen> {
                   ),
                   child: MaterialButton(
                     onPressed: () async {
-                      final user = User(
-                          email: emailcontrollor.text,
-                          name: namecontrollor.text,
-                          age: int.parse(agecontrollor.text));
-
-                      createUser(user);
-
                       if (formKey.currentState!.validate()) {
-                        print(emailcontrollor);
-                        print(passwordcontrollor);
+                        print(emailcontrollor.text);
+                        print(passwordcontrollor.text);
+
+                        final user = User(
+                            email: emailcontrollor.text,
+                            name: namecontrollor.text,
+                            age: int.parse(agecontrollor.text));
+
+                        createUser(user);
 
                         FirebaseAuth.instance
                             .createUserWithEmailAndPassword(
@@ -177,13 +178,17 @@ class _Registar_screenState extends State<RegistarScreen> {
                           print(value.user!.uid);
                           print(
                               "---------------------success------------------");
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text(
+                                      "Now Use The Email & Password to login")));
                           Navigator.of(context).pushReplacement(
                             MaterialPageRoute(
-                              builder: (context) => buttomNavBar(),
+                              builder: (context) => const LoginScreen(),
                             ),
                           );
                         }).catchError((Error) {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                               content: Text(
                                   "There is an error with Email or Password, Try again")));
                           print(Error.toString());
