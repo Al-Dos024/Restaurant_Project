@@ -38,7 +38,7 @@ class _OnboardingState extends State<OnBoarding> {
               fit: BoxFit.cover,
               width: double.infinity,
             ),
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
             Text(
@@ -48,14 +48,14 @@ class _OnboardingState extends State<OnBoarding> {
                   fontSize: 32,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
               child: Text(
                 subtitle,
-                style: TextStyle(color: Colors.black, fontSize: 18),
+                style: const TextStyle(color: Colors.black, fontSize: 18),
               ),
             )
           ],
