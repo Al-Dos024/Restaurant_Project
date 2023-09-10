@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import '1-Onboarding.dart';
-import '';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
